@@ -91,6 +91,11 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring-version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.7.2</version>
+        </dependency>
         <!-- ORM -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -102,6 +107,19 @@
             <artifactId>mybatis-spring</artifactId>
             <version>${mybatis-spring-version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.3.11.Final</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.11.Final</version>
+        </dependency>
+
         <!-- driver -->
         <dependency>
             <groupId>mysql</groupId>

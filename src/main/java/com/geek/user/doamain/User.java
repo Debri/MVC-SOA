@@ -1,6 +1,9 @@
 package com.geek.user.doamain;
 
-import javax.persistence.Entity;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,20 +12,24 @@ import java.util.Date;
  * Date: 2017/5/21.
  */
 @Entity
+@Table(name = "user")
 public class User implements Serializable {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    @Column(name = "user_name")
     private String userName;
 
     private String password;
 
     private String email;
-
+    @Column(name = "deleted")
     private Integer deleted;
 
+    @CreatedDate
     private Date createTime;
 
+    @LastModifiedDate
     private Date updateTime;
 
     public Long getId() {
