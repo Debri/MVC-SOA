@@ -4,11 +4,11 @@ import com.geek.user.doamain.User;
 import com.geek.user.persistence.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.Date;
+import javax.annotation.Resource;
+import java.util.Iterator;
 
 /**
  * Created by Liuqi
@@ -17,9 +17,9 @@ import java.util.Date;
 @RunWith(value = SpringJUnit4ClassRunner.class)
 @ContextConfiguration(value = "classpath*:SpringData-jpa.xml")
 public class UserRepositoryTest {
-    @Autowired
+    @Resource
     UserRepository userRepository;
-
+/*
     @Test
     public void testFindIdByUserNameAndPassword() throws Exception {
         User user = new User();
@@ -44,7 +44,7 @@ public class UserRepositoryTest {
         User user1 = userRepository.save(user);
         System.out.println("-----------" + user1);
         System.out.println(userRepository.findOne(2L).toString());
-    }
+    }*/
 
     @Test
     public void TestLogin() {
@@ -52,5 +52,13 @@ public class UserRepositoryTest {
         String password = "12";
         Long result = userRepository.findIdByUserNameAndPassword(username, password);
         System.out.println("---------------------" + result);
+    }
+    @Test
+    public void TestFind(){
+        Iterable<User> iterable=userRepository.findAll();
+        Iterator<User> ite=iterable.iterator();
+        while (ite.hasNext()){
+            System.out.println(ite.next());
+        }
     }
 }

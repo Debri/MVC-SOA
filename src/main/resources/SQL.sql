@@ -1,17 +1,4 @@
-/*
-SQLyog Ultimate v11.24 (32 bit)
-MySQL - 5.6.23-log : Database - simple
-*********************************************************************
-*/
 
-/*!40101 SET NAMES utf8 */;
-
-/*!40101 SET SQL_MODE=''*/;
-
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`mvc-demo` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
 USE `mvc-demo`;
@@ -53,9 +40,6 @@ CREATE TABLE `product` (
 
 /*Data for the table `product` */
 
-insert  into `product`(`id`,`name`,`status`,`price`,`detail`,`deleted`,`create_time`,`update_time`) values (1,'衣服',1,10000,'衣服真漂亮',0,'2016-02-03 09:08:12','2016-02-03 09:09:06'),(2,'鞋子',1,5000,'鞋子真好看',0,'2016-02-03 09:08:53','2016-02-03 09:08:53');
-
-/*Table structure for table `trade` */
 
 DROP TABLE IF EXISTS `trade`;
 
@@ -92,11 +76,3 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
-/*Data for the table `user` */
-
-insert  into `user`(`id`,`user_name`,`password`,`email`,`deleted`,`create_time`,`update_time`) values (1,'admin','admin','bobo0218bo@126.com',0,'2016-02-02 12:56:31','2016-02-02 14:47:25');
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

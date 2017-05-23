@@ -18,6 +18,7 @@ public class OrderFacadeImpl implements OrderFacade {
     public Iterable<Order> findOrderByUserId(Long userId) {
 
         return orderRepository.findByUserId(userId);
+
     }
 
     public Order createOrder(Order order) {
@@ -26,5 +27,6 @@ public class OrderFacadeImpl implements OrderFacade {
 
     public void updateOrderByTrade(Order order) {
         orderRepository.updateOrderByTrade(order.getTradeId(),order.getId());
+        return;
     }
 }

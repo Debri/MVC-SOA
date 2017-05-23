@@ -1,17 +1,21 @@
 package com.geek.order.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Liuqi
  * Date: 2017/5/23.
  */
-@Entity(name = "Order")
+@Entity(name = "order")
 @Table(name = "order")
-public class Order {
+public class Order implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "product_id")
     private Long productId;
@@ -19,12 +23,14 @@ public class Order {
     @Column(name = "user_id")
     private Long userId;
     @Column(name = "trade_id")
-    private Long tradeId;//支付id
+    private Long tradeId;
     @Column(name = "trade_status")
-    private Integer tradeStatus;//支付状态
-    private Integer deleted;//删除标志，默认0不删除，1删除
+    private Integer tradeStatus;
+    private Integer deleted;
+    @CreatedDate
     @Column(name = "create_time")
     private Date createTime;
+    @LastModifiedDate
     @Column(name = "update_time")
     private Date updateTime;
 
