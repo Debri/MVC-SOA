@@ -1,6 +1,7 @@
 package com.geek.user.presistence;
 
 import com.geek.user.doamain.User;
+import com.geek.user.persistence.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,28 @@ public class UserRepositoryTest {
         user.setUserName("刘奇");
         user.setDeleted(0);
         User user1 = userRepository.save(user);
-        System.out.println(user1);
+        System.out.println("=========================" + user1);
+    }
+
+    @Test
+    public void TestUpdateTime() {
+        User user = new User();
+        user.setId(2L);
+        user.setPassword("123");
+        user.setCreateTime(new Date());
+        user.setEmail("1892@163.com");
+        user.setUserName("刘奇");
+        user.setDeleted(0);
+        User user1 = userRepository.save(user);
+        System.out.println("-----------" + user1);
+        System.out.println(userRepository.findOne(2L).toString());
+    }
+
+    @Test
+    public void TestLogin() {
+        String username = "刘奇";
+        String password = "12";
+        Long result = userRepository.findIdByUserNameAndPassword(username, password);
+        System.out.println("---------------------" + result);
     }
 }

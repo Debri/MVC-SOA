@@ -12,8 +12,8 @@
     <context:component-scan base-package="com.geek"/>
 
 
-    <jpa:repositories base-package="com.geek.*">
-       <!-- <include-filter type="regex" expression="presistence.*Repository"/>-->
+    <jpa:repositories base-package="com.geek.*"  transaction-manager-ref="transactionManager" entity-manager-factory-ref="entityManagerFactory">
+       <!-- <include-filter type="regex" expression="persistence.*Repository"/>-->
     </jpa:repositories>
 
     <bean id="dataSource" class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
@@ -44,7 +44,7 @@
         </tx:attributes>
     </tx:advice>
     <aop:config>
-        <aop:pointcut id="daoPointCut" expression="execution(* com.geek.*.presistence.*.*(..))"/>
+        <aop:pointcut id="daoPointCut" expression="execution(* com.geek.*.persistence.*.*(..))"/>
         <aop:advisor advice-ref="transactionAdvice" pointcut-ref="daoPointCut"/>
     </aop:config>
 </beans>

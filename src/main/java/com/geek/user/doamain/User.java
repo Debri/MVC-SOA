@@ -11,7 +11,7 @@ import java.util.Date;
  * Created by Liuqi
  * Date: 2017/5/21.
  */
-@Entity
+@Entity(name = "user")
 @Table(name = "user")
 public class User implements Serializable {
     @Id
@@ -27,9 +27,11 @@ public class User implements Serializable {
     private Integer deleted;
 
     @CreatedDate
+    @Column(name = "create_time")
     private Date createTime;
 
     @LastModifiedDate
+    @Column(name = "update_time")
     private Date updateTime;
 
     public Long getId() {
