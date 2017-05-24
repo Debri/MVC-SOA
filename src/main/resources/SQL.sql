@@ -3,8 +3,6 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`mvc-demo` /*!40100 DEFAULT CHARACTER SE
 
 USE `mvc-demo`;
 
-/*Table structure for table `order` */
-
 DROP TABLE IF EXISTS `order`;
 
 CREATE TABLE `order` (
@@ -20,9 +18,6 @@ CREATE TABLE `order` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-/*Data for the table `order` */
-
-/*Table structure for table `product` */
 
 DROP TABLE IF EXISTS `product`;
 
@@ -38,7 +33,6 @@ CREATE TABLE `product` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='产品信息';
 
-/*Data for the table `product` */
 
 
 DROP TABLE IF EXISTS `trade`;
@@ -59,9 +53,7 @@ CREATE TABLE `trade` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='交易';
 
-/*Data for the table `trade` */
 
-/*Table structure for table `user` */
 
 DROP TABLE IF EXISTS `user`;
 
