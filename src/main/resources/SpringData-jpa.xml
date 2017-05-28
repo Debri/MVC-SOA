@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/data/jpa
        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
-        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
     <context:annotation-config/>
     <context:component-scan base-package="com.geek"/>
     <context:property-placeholder location="classpath*:jdbc.properties"/>
 
-    <jpa:repositories base-package="com.geek.*" query-lookup-strategy="create-if-not-found" transaction-manager-ref="transactionManager" entity-manager-factory-ref="entityManagerFactory">
-       <!-- <include-filter type="regex" expression="persistence.*Repository"/>-->
+    <jpa:repositories base-package="com.geek.*" query-lookup-strategy="create-if-not-found"
+                      transaction-manager-ref="transactionManager" entity-manager-factory-ref="entityManagerFactory">
+        <!-- <include-filter type="regex" expression="persistence.*Repository"/>-->
     </jpa:repositories>
 
     <!--dataSource and connectionPool-->
@@ -27,6 +33,7 @@
         <property name="maxIdle" value="${jdbc.maxIdle}"/>
         <property name="minIdle" value="${jdbc.minIdle}"/>
         <property name="initialSize" value="${jdbc.initialSize}"/>
+
         <!--        <property name="testWhileIdle" value="${jdbc.testWhileIdle}" />
         <property name="validationQuery" value="${jdbc.validationQuery}" />-->
     </bean>
@@ -38,9 +45,12 @@
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="generateDdl" value="true"/>
                 <property name="showSql" value="true"/>
+                <!--指定数据库的平台，此处设定为MySQL 5.7-->
+                <property name="databasePlatform" value="org.hibernate.dialect.MySQL57InnoDBDialect"/>
             </bean>
         </property>
     </bean>
+    <!--<bean id="MySQL57InnoDBDialect" class="org.hibernate.dialect.MySQL57InnoDBDialect"/>-->
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>

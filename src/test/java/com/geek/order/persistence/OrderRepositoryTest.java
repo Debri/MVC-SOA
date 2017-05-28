@@ -31,7 +31,6 @@ public class OrderRepositoryTest {
         order.setTradeId(1L);
         order.setTradeStatus(0);
         Order order1 = orderRepository.save(order);
-
         System.out.println("====================" + order1);
     }
 
@@ -44,7 +43,5 @@ public class OrderRepositoryTest {
         while (ite.hasNext()){
             System.out.println(ite.next());
         }
-
     }
-
 }

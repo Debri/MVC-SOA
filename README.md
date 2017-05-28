@@ -8,3 +8,11 @@
 3. 更高的伸缩性
     > 依靠服务设计、开发和部署所采用的架构模型实现伸缩性。服务提供者可以彼此独立调整，以满足服务需求
 
+### 数据表的名称不能设置成“order”？？？ 改成“orders”以后就不会报sql语法错误了
+    org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+    
+设置连接的数据库方言
+
+
+
+
