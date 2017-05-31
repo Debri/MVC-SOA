@@ -27,7 +27,6 @@ public class OrderRepositoryTest {
         order.setUserId(2L);
         order.setPrice(123);
         order.setDeleted(0);
-
         order.setTradeId(1L);
         order.setTradeStatus(0);
         Order order1 = orderRepository.save(order);
@@ -38,9 +37,9 @@ public class OrderRepositoryTest {
     public void TestFind() {
         /*Order order = orderRepository.findOne(1L);
         System.out.println(order);*/
-        Iterable<Order> iterable =  orderRepository.find();
+        Iterable<Order> iterable = orderRepository.find();
         Iterator ite = iterable.iterator();
-        while (ite.hasNext()){
+        while (ite.hasNext()) {
             System.out.println(ite.next());
         }
     }

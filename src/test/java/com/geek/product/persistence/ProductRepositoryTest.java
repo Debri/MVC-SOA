@@ -21,5 +21,4 @@ public class ProductRepositoryTest {
     public void TestFind() {
         System.out.println("----------" + productRepository.findOne(1L));
     }
-
 }

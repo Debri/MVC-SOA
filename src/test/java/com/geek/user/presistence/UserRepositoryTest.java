@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.Iterator;
 
 /**
@@ -19,7 +20,6 @@ import java.util.Iterator;
 public class UserRepositoryTest {
     @Resource
     UserRepository userRepository;
-/*
     @Test
     public void testFindIdByUserNameAndPassword() throws Exception {
         User user = new User();
@@ -44,7 +44,7 @@ public class UserRepositoryTest {
         User user1 = userRepository.save(user);
         System.out.println("-----------" + user1);
         System.out.println(userRepository.findOne(2L).toString());
-    }*/
+    }
 
     @Test
     public void TestLogin() {
